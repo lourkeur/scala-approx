@@ -1,16 +1,14 @@
 package lourkeur.approx
 
 trait Syntax {
-  implicit final class ApproxOps[T: ApproxEq](
-    lhs: T
-  )(
-    implicit approximationMethod: ApproximationMethod
-  ) {
-    def aeq(rhs: T) =
+  implicit final class ApproxOps[T: ApproxEq](lhs: T) {
+    def aeq(rhs: T)(implicit am: ApproximationMethod) =
       ApproxEq[T].aeq(lhs, rhs)
-    def naeq(rhs: T) =
+    def naeq(rhs: T)(implicit am: ApproximationMethod) =
       !(ApproxEq[T].aeq(lhs, rhs))
-    def =≈(rhs: T) = aeq(rhs)
-    def !≈(rhs: T) = naeq(rhs)
+    def =≈(rhs: T)(implicit am: ApproximationMethod) =
+      aeq(rhs)
+    def !≈(rhs: T)(implicit am: ApproximationMethod) =
+      naeq(rhs)
   }
 }

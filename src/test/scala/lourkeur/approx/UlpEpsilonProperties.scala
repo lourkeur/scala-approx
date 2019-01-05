@@ -5,7 +5,7 @@ import org.scalacheck._
 object UlpEpsilonProperties extends Properties("UlpEpsilonProperties") {
   import Prop._
 
-  implicit val am = new UlpEpsilon
+  implicit val am = UlpEpsilon()
 
   property("Each double is considered approximately equal to itself") =
     forAll { a: Double =>

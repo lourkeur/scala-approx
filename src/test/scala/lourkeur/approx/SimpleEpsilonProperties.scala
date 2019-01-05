@@ -5,6 +5,8 @@ import org.scalacheck._
 object SimpleEpsilonProperties extends Properties("SimpleEpsilonProperties") {
   import Prop._
 
+  implicit val am = SimpleEpsilon()
+
   property("Each double is considered approximately equal to itself") =
     forAll { a: Double =>
       val b = a

@@ -2,7 +2,7 @@ package lourkeur.approx
 
 /** SAM trait for reified approximation methods.
   *
-  * @see [[approximationMethod]], [[SimpleEpsilon]], [[UlpEpsilon]]
+  * @see [[SimpleEpsilon]], [[UlpEpsilon]]
   */
 trait ApproximationMethod {
   /** test if ''a'' and ''b'' are close to each other, according to the
